@@ -1,0 +1,369 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,700;1,300&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+@import url('./reset.css');
+@import url('./common.css');
+
+
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: height .3s, box-shadow 400ms;
+    z-index: 100;
+    background: #fff;
+
+    .logo {
+        left: 3%;
+        width: 200px;
+        height: 30x;
+        position: absolute;
+        top: 35px;
+        z-index: 2;
+        transition: top .3s;
+
+        a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        svg {
+            width: 201px;
+            height: 30px;
+        }
+    }
+
+}
+
+.menu_area {
+    z-index: 1;
+    line-height: 1;
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 30px;
+
+    .menu_container {
+        font-size: 0;
+        line-height: 1;
+        text-align: right;
+        z-index: 1;
+        // display: inline-block;
+        // vertical-align: top;
+
+        .header_bg {
+            position: fixed;
+            top: 105px;
+            left: 0;
+            right: 0;
+            background: #fff;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1;
+            box-shadow: 0 15px 10px rgba(34, 34, 34, 0.02);
+
+            &.on {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+
+        .main_menu {
+            // vertical-align: top;
+            z-index: 2; // sub_menu는 z-index: 1을 줌, sub_menu보다 작으면 .curr_bar 높이가 작게보임
+            position: relative;
+            display: flex;
+
+            > li {
+                // vertical-align: top;
+                position: relative;
+
+                > a {
+                    line-height: 106px;
+                    padding: 0 23px;
+                    position: relative;
+                    font-size: 18px;
+                    font-weight: 600;
+                    color: #222;
+                    display: block;
+                }
+            }
+        }
+
+        .curr_bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: #000;
+            transition: 0.3s;
+            opacity: 0;
+
+            &.on {
+                opacity: 1;
+            }
+        }
+
+        .sub_menu {
+            display: none;
+            padding: 35px 0 54px;
+            position: absolute;
+            z-index: 1;
+            left: 0;
+            text-align: left;
+            background: #fff;
+
+            a {
+                display: block;
+                height: 100%;
+                padding: 6px 23px;
+                font-size: 17px;
+                color: #222;
+                line-height: 1.7;
+                transition: all 0.3s;
+                white-space: nowrap;
+
+                &:hover {
+                    color: #ab8800;
+                }
+            }
+        }
+    }
+    .search {
+        margin: auto 0;
+        padding: 8px 10px 0;
+        z-index: 2;
+        transition: top .3s;
+
+        .search_btn {
+            display: block;
+            width: 40px;
+            height: 40px;
+            position: relative;
+
+            &::after {
+                content: url('../img/outline_search_black_24dp.png');
+                display: block;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                font-size: 22px;
+                line-height: 40px;
+                // font-weight: normal;
+                // text-align: center;
+                color: #000;
+                transition: color .3s;
+            }
+        }
+    }
+
+    .lang_container {
+        margin: auto 0;
+        padding: 8px 10px 0;
+        z-index: 2;
+        transition: top .3s;
+        position: relative;
+        
+
+        .lang_btn {
+            display: block;
+            width: 40px;
+            height: 40px;
+            background: none; //버튼 속성 없어짐, 안 주면 버튼모양처럼 됨, 나중에 reset으로 뺄지
+            border: none; //버튼 속성 없어짐, 안 주면 버튼모양처럼 됨,나중에 reset으로 뺄지
+            position: relative;
+            cursor: pointer;
+
+            &::after {
+                content: url('../img/outline_language_black_24dp.png');
+                display: block;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                font-size: 22px;
+                line-height: 40px;
+                color: #000;
+                transition: color .3s;
+            }
+
+        }
+
+        .lang_menu_wrap {
+            position: absolute;
+            top: 32px;
+            padding-top: 34px;
+            left: 50%;
+            -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+            z-index: 10;
+            transition: opacity .3s, visibility .3s;
+
+            .lang_menu {
+                position: relative;
+                padding: 20px 0;
+                background: #222;
+                font-size: 14px;
+
+                // 박스 위 화살표
+                &::before {
+                    content: '';
+                    width: 0px;
+                    height: 0px;
+                    position: absolute;
+                    top: -22px;
+                    left: 50%;
+                    margin-left: -11px;
+                    border: 11px solid transparent;
+                    border-bottom-color: #222;
+                    -webkit-transform: scaleX(0.8);
+                    transform: scaleX(0.8);
+                }
+                a {
+                    padding: 8px 31px;
+                    font-size: 17px;
+                    color: #fff;
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    padding: 45px 0 45px;
+    background: #222;
+    font-size: 0;
+
+    .privacy {
+        display: inline-block;
+        vertical-align: middle;
+        padding-right: 12px;
+        margin-right: 10px;
+
+        a {
+            font-size: 14px;
+            font-weight: 500;
+            color: #fff;
+
+            &::after {
+                width: 1px;
+                height: 12px;
+                background: #fff;
+                opacity: 0.1;
+                content: '';
+                position: absolute;
+                right: 0;
+                top: 50%;
+                margin-top: -6px;
+            }
+        }
+
+    }
+
+    .copyright {
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 16px;
+        font-weight: 500;
+        color: #fff;
+        opacity: 0.2;
+    }
+
+    .select {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 80px;
+        display: flex;
+
+        button {
+            // transition: 0.3s;
+            cursor: pointer;
+            background: inherit; //버튼 reset
+            border: none; //버튼 reset
+            padding-right: 20px;
+            width: 100%;
+            font-size: 16px;
+            font-weight: 500;
+            color: #fff;
+            position: relative;
+            margin-right: 30px;
+    
+            // p{margin-right: 5px;}
+    
+            .arrow {
+                width: auto;
+                // display: block;
+                position: absolute;
+                right: 0;
+                top: 0;
+            
+                &::after {
+                    position: absolute;
+                    right: 6px;
+                    content: url('../img/outline_arrow_drop_up_white_24dp.png');
+                    transition: 0.5s;
+                }
+            }
+            &.on{
+                span::after{
+                    transform: rotate(180deg);;
+                }
+            }
+    
+        }
+        .select_box {
+            position: absolute;
+            bottom: 35px;
+            font-size: 14px;
+            z-index: 100;
+            transition: opacity .3s, visibility .3s;
+
+
+            .box_inner {
+                position: relative;
+                padding: 10px 5px;
+                height: auto;
+                background: #fff;
+                border: 1px solid #222;
+                border-radius: 0px;
+                overflow: auto;
+            }
+
+            .box_content {
+                overflow: hidden;
+                outline: none;
+                padding-right: 0;
+                width: 100%;
+                height: 100%;
+                position: relative;
+
+                a {
+                    padding-top: 0;
+                    padding-left: 13px;
+                    padding-right: 13px;
+                    transition: 0.3s;
+                    padding: 10px;
+                    display: block;
+                    color: #999;
+                    font-size: 15px;
+                    line-height: 1;
+                    z-index: 1;
+
+                    &:hover{
+                        color: #000;
+                    }
+                }
+            }
+        }
+    }      
+}

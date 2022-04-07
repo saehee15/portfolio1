@@ -1,0 +1,714 @@
+@import url('./common.css');
+
+.cursor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: #fff;
+    z-index: 100;
+    background: rgba(255, 255, 255, .5);
+    transform: scale(0);
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+.cursor_txt {
+    position: absolute;
+    z-index: 100;
+    font-size: 18px;
+    font-weight: 700;
+    color: #222;
+    opacity: 0;
+}
+
+.sc_visual {
+    height: 100vh;
+
+    .sc_visual_wrap {
+        height: 100%;
+        opacity: 1;
+        transition: opacity 0.5s;
+
+        .firstSlide {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            margin: 0 auto;
+            position: relative;
+            list-style: none;
+            padding: 0;
+            z-index: 1;
+
+            .swiper-wrapper {
+                position: relative;
+                height: 100%;
+                width: 100%;
+                z-index: 1;
+                transition-property: transform;
+                box-sizing: content-box;
+            }
+
+            .swiper-slide {
+                flex-shrink: 0;
+                width: 100%;
+                height: 100%;
+                position: relative;
+                transition-property: transform;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+            }
+        }
+    }
+
+    .slide_bg {
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        position: absolute;
+        background: no-repeat center center;
+        background-size: cover;
+        width: 100%;
+
+
+        &.first {
+            background-image: url('../img/main-visual1.jpeg');
+        }
+
+        &.second {
+            background-image: url('../img/main-visual2.jpeg');
+        }
+
+        &.third {
+            background-image: url('../img/main-visual3.jpeg');
+        }
+
+        &::before {
+            height: 0;
+            margin-top: 0;
+            content: '';
+            position: absolute;
+            width: 100%;
+            display: block;
+            background-color: #fff;
+            z-index: 0;
+            transition-duration: 1.3s;
+            transition-timing-function: ease-in-out;
+
+        }
+    }
+
+    .txt {
+        position: relative;
+        z-index: 1;
+    }
+
+    .title {
+        font-size: 110px;
+        line-height: 1.1;
+        letter-spacing: 0;
+        text-indent: -0.2px;
+        font-weight: 700;
+        color: #222;
+        overflow: hidden;
+
+        .overflow {
+            overflow: hidden;
+
+            span {
+                display: block;
+            }
+        }
+    }
+
+    P {
+        font-size: 25px;
+        letter-spacing: -0.025em;
+        opacity: 1;
+        visibility: inherit;
+        transform: translate(0px, 0px);
+        padding-top: 39px;
+        font-size: 26px;
+        line-height: 1.6;
+        font-weight: 500;
+        color: #222;
+    }
+
+    .wrap {
+        max-width: inherit;
+        margin: 0 6.5%;
+    }
+
+    .scroll_down {
+        opacity: 1;
+        visibility: inherit;
+        bottom: 80px;
+        right: 60px;
+        display: block;
+        position: absolute;
+        cursor: pointer;
+        z-index: 10;
+        transition: opacity .3s, visibility .3s;
+
+        &::after {
+            color: #888;
+            font-size: 55px;
+            display: block;
+            width: 100%;
+            height: 100%;
+            content: url('../img/outline_arrow_downward_black_24dp.png');
+            font-weight: normal;
+            text-align: center;
+            transition: color .3s;
+        }
+
+    }
+
+    .navigation_wrap {
+        position: absolute;
+        bottom: 100px;
+        left: 80px;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+
+        .curr {
+            width: 30px;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .gauge {
+            width: 150px;
+            height: 3px;
+            background: #ccc;
+
+            .gauge_curr {
+                width: 0;
+                height: 100%;
+                background: #000;
+                display: block;
+
+            }
+        }
+
+        .total {
+            width: 30px;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .btn_state {
+            button {
+                display: none;
+
+                &.on {
+                    display: block;
+                }
+            }
+        }
+
+    }
+}
+
+.sc_projects {
+    padding: 180px 0 160px;
+
+    .wrap {
+        position: relative;
+        max-width: inherit;
+        margin: 0 6.5%;
+        display: flex;
+    }
+
+    .txt {
+        vertical-align: top;
+        width: 34.2%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .title {
+            font-size: 74px;
+            font-weight: 700;
+            line-height: 1.25;
+        }
+
+        p {
+            font-size: 23px;
+            letter-spacing: -0.025px;
+            font-weight: 500;
+            line-height: 1.55;
+            margin-bottom: auto;
+        }
+
+        .navigation_wrap {
+            position: absolute;
+            bottom: -7px;
+            left: -13px;
+
+            .swiper-button-prev {
+                width: 30px;
+                background: none;
+                border: none;
+                margin: 0;
+                padding: 10px 0;
+                text-align: center;
+                position: relative;
+                display: inline-block;
+                vertical-align: middle;
+                height: auto;
+                transition: color .3s;
+                background: url(../img/outline_keyboard_arrow_left_black_24dp.png) no-repeat center;
+
+                &::after {
+                    display: none;
+                }
+            }
+
+            .swiper-pagination {
+                display: inline-block;
+                position: relative;
+                width: auto;
+                vertical-align: middle;
+                font-size: 22px;
+                bottom: 0;
+                padding: 0 20px;
+                color: #999;
+                transition: .3s opacity;
+                transform: translate3d(0, 0, 0);
+                z-index: 10;
+
+            }
+
+            .swiper-button-next {
+                width: 30px;
+                background: none;
+                border: none;
+                margin: 0;
+                padding: 10px 0;
+                text-align: center;
+                position: relative;
+                display: inline-block;
+                vertical-align: middle;
+                height: auto;
+                transition: color .3s;
+                background: url(../img/outline_keyboard_arrow_right_black_24dp.png) no-repeat center;
+
+                &::after {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .secondSlide {
+        display: inline-block;
+        vertical-align: top;
+        width: 65.8%;
+        min-height: 300px;
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+        list-style: none;
+        padding: 0;
+        z-index: 1;
+
+        .swiper-wrapper {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            z-index: 1;
+            transition-property: transform;
+            box-sizing: content-box;
+
+            .swiper-slide {
+                flex-shrink: 0;
+                width: 100%;
+                height: 100%;
+                position: relative;
+                transition-property: transform;
+                display: flex;
+
+
+                &:first-child {
+                    margin-left: 0;
+                }
+
+                &:last-child {
+                    margin-right: 0;
+                }
+
+                .content {
+                    display: inline-block;
+                    vertical-align: top;
+                    margin: 0 20px;
+                    width: calc(50% - 20px);
+
+                    .img_wrap {
+                        overflow: hidden;
+                    }
+
+                    img {
+                        width: 100%;
+                        display: block;
+
+                        &:hover {
+                            transform: scale(1.05);
+                            transition: transform .5s;
+                        }
+
+                        &:not(:hover) {
+                            transition: .5s;
+                        }
+                    }
+                }
+
+                .content_title {
+                    margin-top: 30px;
+                    font-size: 22px;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+
+}
+
+.sc_banner {
+    width: 100%;
+    height: 680px;
+    position: relative;
+    text-align: center;
+    color: #fff;
+    display: table;
+    overflow: hidden;
+    background: url('../img/main-banner-bg.jpeg') center;
+
+    .wrap {
+        max-width: inherit;
+        margin: 0 6.5%;
+
+        h2 {
+            font-size: 50px;
+            font-weight: 700;
+            text-align: center;
+            color: #fff;
+            width: 100%;
+            margin-top: 150px;
+            line-height: 1.5;
+        }
+
+        p {
+            font-size: 24px;
+            line-height: 1.7;
+            margin-top: 23px;
+        }
+
+        a {
+            color: #fff;
+            margin-top: 50px;
+            display: inline-block;
+            padding: 7px 18px;
+            position: relative;
+            line-height: 1;
+            font-size: 18px;
+            font-weight: 700;
+
+
+            span {
+                display: inline-block;
+                padding: 12px 0;
+                position: relative;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    width: 100%;
+                    height: 3px;
+                    display: block;
+                    margin-top: 10px;
+                    background: #fff;
+                    transition: width .5s ease;
+
+                }
+
+                &:hover::after {
+                    width: 0;
+                    right: 0;
+                }
+            }
+        }
+
+
+    }
+
+}
+
+.sc_about {
+    padding: 180px 0 160px;
+    background: #f8f8f8;
+
+    .wrap {
+        position: relative;
+        max-width: inherit;
+        margin: 0 6.5%;
+        display: flex;
+    }
+
+    .txt {
+        vertical-align: top;
+        width: 34.2%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .title {
+            font-size: 74px;
+            font-weight: 700;
+            line-height: 1.25;
+        }
+
+        p {
+            font-size: 23px;
+            letter-spacing: -0.025px;
+            font-weight: 500;
+            line-height: 1.55;
+            margin-bottom: auto;
+        }
+
+        .navigation_wrap {
+            position: absolute;
+            bottom: -7px;
+            left: -13px;
+
+            .swiper-button-prev {
+                width: 30px;
+                background: none;
+                border: none;
+                margin: 0;
+                padding: 10px 0;
+                text-align: center;
+                position: relative;
+                display: inline-block;
+                vertical-align: middle;
+                height: auto;
+                transition: color .3s;
+                background: url(../img/outline_keyboard_arrow_left_black_24dp.png) no-repeat center;
+
+                &::after {
+                    display: none;
+                }
+            }
+
+            .pagination {
+                display: inline-block;
+                position: relative;
+                width: auto;
+                vertical-align: middle;
+                font-size: 22px;
+                bottom: 0;
+                padding: 0 20px;
+                color: #999;
+                transition: .3s opacity;
+                transform: translate3d(0, 0, 0);
+                z-index: 10;
+
+            }
+
+            .swiper-button-next {
+                width: 30px;
+                background: none;
+                border: none;
+                margin: 0;
+                padding: 10px 0;
+                text-align: center;
+                position: relative;
+                display: inline-block;
+                vertical-align: middle;
+                height: auto;
+                transition: color .3s;
+                background: url(../img/outline_keyboard_arrow_right_black_24dp.png) no-repeat center;
+
+                &::after {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .thirdSlide {
+        display: inline-block;
+        vertical-align: top;
+        width: 65.8%;
+        min-height: 300px;
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+        list-style: none;
+        padding: 0;
+        z-index: 1;
+
+        .swiper-wrapper {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            z-index: 1;
+            transition-property: transform;
+            box-sizing: content-box;
+
+            .swiper-slide {
+                flex-shrink: 0;
+                width: 100%;
+                height: 100%;
+                position: relative;
+                transition-property: transform;
+                display: flex;
+
+
+                &:first-child {
+                    margin-left: 0;
+                }
+
+                &:last-child {
+                    margin-right: 0;
+                }
+
+                .content {
+                    display: inline-block;
+                    vertical-align: top;
+                    margin: 0 20px;
+                    width: calc(50% - 20px);
+
+                    .img_wrap {
+                        overflow: hidden;
+                    }
+
+                    img {
+                        width: 100%;
+                        display: block;
+
+                        &:hover {
+                            transform: scale(1.05);
+                            transition: transform .5s;
+                        }
+
+                        &:not(:hover) {
+                            transition: .5s;
+                        }
+                    }
+                }
+
+                .content_title {
+                    margin-top: 30px;
+                    font-size: 22px;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+
+}
+
+.sc_contact {
+    margin-top: 160px;
+    position: relative;
+
+    &::after {
+        width: 100%;
+        height: 50%;
+        background: #222;
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 0;
+        z-index: -1;
+    }
+
+    .wrap {
+        max-width: inherit;
+        margin: 0 6.5%;
+
+        .title {
+            font-size: 54px;
+            margin-bottom: 60px;
+            font-weight: 700;
+            text-align: center;
+            line-height: 1.5;
+
+        }
+    }
+
+
+    .contact {
+        width: 30%;
+        height: 840px;
+        margin: 0 auto;
+        text-align: center;
+        display: table;
+        position: relative;
+        background: url(../img/main-contact-bg-003.jpeg) center;
+        background-size: cover;
+
+
+        .wrap {
+            max-width: inherit;
+            margin: 0 6.5%;
+
+            h2 {
+                font-size: 74px;
+                font-weight: 700;
+                color: #fff;
+                margin-top: 290px;
+                line-height: 1.2;
+            }
+
+            .contact_click {
+                color: #fff;
+                margin-top: 50px;
+                display: inline-block;
+                padding: 7px 18px;
+                position: relative;
+                line-height: 1;
+                font-size: 18px;
+                font-weight: 700;
+
+
+                span {
+                    display: block;
+                    padding: 12px 0;
+                    position: relative;
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        width: 100%;
+                        height: 3px;
+                        display: block;
+                        margin-top: 10px;
+                        background: #fff;
+                        transition: width .5s ease;
+                        -webkit-transition: width .5s ease;
+                    }
+
+                    &:hover::after {
+                        width: 0;
+                        right: 0;
+                        background: #fff;
+                    }
+
+                }
+            }
+        }
+    }
+
+}

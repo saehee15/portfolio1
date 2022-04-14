@@ -1,6 +1,5 @@
 $(function () {
     // header
-
     //서브메뉴 다운
     $('.main_menu > li').hover(function () {
 
@@ -46,13 +45,14 @@ $(function () {
             x: e.pageX - $('.cursor').width() / 2,
             y: e.pageY - $('.cursor').height() / 2,
         })
-        // gsap.to('.cursor_txt',0.7,{
-        //     x:xVal - $('.cursor_txt').width()/2,
-        //     y:yVal - $('.cursor_txt').height()/2
-        // })
+        gsap.to('.cursor_txt',0.7,{
+            x:xVal - $('.cursor_txt').width()/2,
+            y:yVal - $('.cursor_txt').height()/2
+        })
     })
 
-    $('.content').mouseover(function () {
+
+    $(document).on("mouseover",".content",function(){
         gsap.to('.cursor', 0.2, {
             scale: 1,
         })
@@ -60,7 +60,8 @@ $(function () {
             opacity: 1,
         })
     })
-    $('.content').mouseleave(function () {
+
+    $(document).on("mouseleave",".content",function(){
         gsap.to('.cursor', 0.2, {
             scale: 0,
         })
@@ -68,6 +69,7 @@ $(function () {
             opacity: 0,
         })
     })
+
 
 
 
@@ -87,7 +89,6 @@ $(function () {
     // slide
     var firstSlide = new Swiper(".firstSlide", {
 
-        // effect:'fade',
         loop: true,
     });
 
@@ -101,7 +102,7 @@ $(function () {
         }
     })
 
-    //txt
+    // slide's txt
     var txtMotion = gsap.fromTo('.swiper-slide .title span', {
         yPercent: 100,
     }, {
@@ -144,10 +145,10 @@ $(function () {
 
 
 
+
     var secondSlide = new Swiper(".secondSlide", {
 
         loop: true,
-
         autoplay: {
             delay: 3000,
             disableOnInteraction: false,
@@ -174,10 +175,10 @@ $(function () {
         }
     });
 
+
     var thirdSlide = new Swiper(".thirdSlide", {
 
         loop: true,
-
         autoplay: {
             delay: 3000,
             disableOnInteraction: false,
@@ -204,6 +205,7 @@ $(function () {
         }
     });
 
+
     // scrollTrigger
     ScrollTrigger.create({
         trigger: ".sc_contact",
@@ -218,17 +220,6 @@ $(function () {
             });
         }
     })
-
-
-    // $('.contact a').hide();
-    // $('.sc_contact .contact').animate({
-    //     width: 100 + '%'
-    // }, 500, () => {
-    //     $('.contact h2').removeClass('hide'), $('.contact a').fadeIn(1000);
-    // });
-
-
-
 
     // footer
     $('.select button').click(function () {

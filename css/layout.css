@@ -146,8 +146,6 @@ header .logo svg {
   display: block;
   width: 40px;
   height: 40px;
-  background: none;
-  border: none;
   position: relative;
   cursor: pointer;
 }
@@ -244,9 +242,8 @@ footer .select {
   display: flex;
 }
 footer .select button {
+  transition: 0.3s;
   cursor: pointer;
-  background: inherit;
-  border: none;
   padding-right: 20px;
   width: 100%;
   font-size: 16px;

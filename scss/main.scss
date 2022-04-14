@@ -15,8 +15,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
-
+    pointer-events: none;
 }
 
 .cursor_txt {
@@ -26,6 +25,7 @@
     font-weight: 700;
     color: #222;
     opacity: 0;
+    pointer-events: none;
 }
 
 .sc_visual {
@@ -51,7 +51,6 @@
                 height: 100%;
                 width: 100%;
                 z-index: 1;
-                transition-property: transform;
                 box-sizing: content-box;
             }
 
@@ -60,10 +59,9 @@
                 width: 100%;
                 height: 100%;
                 position: relative;
-                transition-property: transform;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
+                // display: flex;
+                // flex-direction: column;
+                // justify-content: center;
 
             }
         }
@@ -210,13 +208,26 @@
         .btn_state {
             button {
                 display: none;
+                cursor: pointer;
+
+                &.play{
+                    width: 10px;
+                    height: 10px;
+                    background: url('../img/outline_play_arrow_black_18dp.png') no-repeat center;
+                }
+
+                &.pause{
+                    width: 10px;
+                    height: 10px;
+                    background: url('../img/outline_pause_black_18dp.png') no-repeat center;
+
+                }
 
                 &.on {
                     display: block;
                 }
             }
         }
-
     }
 }
 
@@ -268,7 +279,7 @@
                 vertical-align: middle;
                 height: auto;
                 transition: color .3s;
-                background: url(../img/outline_keyboard_arrow_left_black_24dp.png) no-repeat center;
+                background: url('../img/outline_keyboard_arrow_left_black_24dp.png') no-repeat center;
 
                 &::after {
                     display: none;
@@ -302,7 +313,7 @@
                 vertical-align: middle;
                 height: auto;
                 transition: color .3s;
-                background: url(../img/outline_keyboard_arrow_right_black_24dp.png) no-repeat center;
+                background: url('../img/outline_keyboard_arrow_right_black_24dp.png') no-repeat center;
 
                 &::after {
                     display: none;
@@ -503,7 +514,7 @@
                 vertical-align: middle;
                 height: auto;
                 transition: color .3s;
-                background: url(../img/outline_keyboard_arrow_left_black_24dp.png) no-repeat center;
+                background: url('../img/outline_keyboard_arrow_left_black_24dp.png') no-repeat center;
 
                 &::after {
                     display: none;
@@ -537,7 +548,7 @@
                 vertical-align: middle;
                 height: auto;
                 transition: color .3s;
-                background: url(../img/outline_keyboard_arrow_right_black_24dp.png) no-repeat center;
+                background: url('../img/outline_keyboard_arrow_right_black_24dp.png') no-repeat center;
 
                 &::after {
                     display: none;
@@ -563,15 +574,14 @@
             height: 100%;
             width: 100%;
             z-index: 1;
-            transition-property: transform;
-            box-sizing: content-box;
+            // transition-property: transform;
 
             .swiper-slide {
                 flex-shrink: 0;
                 width: 100%;
                 height: 100%;
                 position: relative;
-                transition-property: transform;
+                // transition-property: transform;
                 display: flex;
 
 
@@ -656,7 +666,7 @@
         text-align: center;
         display: table;
         position: relative;
-        background: url(../img/main-contact-bg-003.jpeg) center;
+        background: url('../img/main-contact-bg-003.jpeg') center;
         background-size: cover;
 
 
@@ -697,7 +707,6 @@
                         margin-top: 10px;
                         background: #fff;
                         transition: width .5s ease;
-                        -webkit-transition: width .5s ease;
                     }
 
                     &:hover::after {
